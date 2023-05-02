@@ -5,72 +5,151 @@
     ViewData["Title"] = "Receiveds";
     Layout = "_Layout";
 }
-<div style="width:100%" class="mt-2">
-    <a href="/home/index" class="btn btn-primary my-2">Back</a>
+@*<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat&family=Dancing +Script&family=Lato:ital@1&display=swap" rel="stylesheet">*@
+<style>
+    body {
+        background: url("https://cdn.discordapp.com/attachments/887322828716781598/1101706303069495396/Fotoram.io.jpg")no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: 'Anton', sans-serif;
+        font-family: 'Caveat', cursive;
+        font-family: 'Lato', sans-serif;
+    }
 
-    <h4>Receiveds</h4>
-    @if (Model != null && Model.Count() > 0)
-    {
-        <div class="w-100 mt-4 d-flex flex-wrap gap-3 justify-content-start">
-            @foreach (var order in Model.OrderByDescending(x => x.CreateDate))
-            {
-                var user = await UserManager.FindByIdAsync(order.UserId);
-                var Receiveduser = await UserManager.FindByIdAsync(order.ReceivedUserId);
-                <div class="card mx-2 mb-4" style="width: 30rem;">
-                    @*<img src="" class="card-img-top" alt="..." />*@
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <p>@user.UserName</p>
-                            <p>@order.OrderStatus.StatusName</p>
-                            <p>@order.CreateDate</p>
-                        </h5>
-                        <p class="card-text">
-                            @foreach (var item in order.OrderDetail)
-                            {
-                            <p>
-                                Menu : @item.Menu.MenuName
-                                shop : @item.Menu.Shop.MenuName
-                                Price : @item.Menu.Price
-                                Quantity : @item.Quantity
-                            </p>
-                            }
+    .background {
+        margin-top: 5%;
+    }
 
-                        </p>
-                        <p>
-                            Description : @order.Description
-                        </p>
-                        @if (Receiveduser is not null)
+    .btn {
+        background-color: #96221c;
+        border: none;
+        border-radius: 10px;
+        color: white;
+    }
+
+        .btn:hover {
+            color: white;
+        }
+
+    .btn-inBox {
+        margin-bottom: 25px;
+        position: fixed;
+        bottom: 0;
+        right: 25px;
+    }
+
+    .card-deco {
+        background-color: transparent;
+        backdrop-filter: blur(100px);
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding-right: 15px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,.5);
+    }
+
+        /*.card-deco:hover {
+            background-color: transparent;
+            backdrop-filter: blur(300px);
+            box-shadow: 0 0 10px rgba(0,0,0,.5);
+        }*/
+
+    .cardText {
+        padding: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .complete {
+        color: #03AC13;
+    }
+
+    .received {
+        color: red;
+    }
+
+</style>
+
+<body style="width:100%;">
+    <div class="background">
+        <div class="form-box">
+            <div style="width:100%" class="container-fluid mt-2 row">
+
+                <h1 class="text-light text-center mb-4">Received</h1>
+                @if (Model != null && Model.Count() > 0)
+                {
+                    <div class="w-100 mt-4 d-flex flex-wrap gap-3 justify-content-around">
+                        @foreach (var order in Model)
                         {
-                            <h7>Received by : @Receiveduser.UserName</h7>
+                            var user = await UserManager.FindByIdAsync(order.UserId);
+                            var Receiveduser = await UserManager.FindByIdAsync(order.ReceivedUserId);
+                            <div class="card mx-2 mb-4 card-deco col-lg-4" style="width: 30rem;">
+                                @*<img src="" class="card-img-top" alt="..." />*@
+                                <div class="card-body">
+                                    <div class="mb-3"></div>
+                                    <h5 class="card-title">
+                                        <p><i class='bx bx-user-circle'></i> @user.UserName</p>
+                                        @if (@order.OrderStatus.StatusName == "Complete")
+                                        {
+                                            <p class="complete"><strong>@order.OrderStatus.StatusName</strong></p>
+                                        }
+                                        else
+                                        {
+                                            <p class="received"><strong>@order.OrderStatus.StatusName</strong></p>
+                                        }
+                                        <p>@order.CreateDate</p>
+                                    </h5>
+                                    <div class="cardText mb-2 container-sm">
+                                        <div class="row">
+                                            <p class="card-text">
+                                                @foreach (var item in order.OrderDetail)
+                                                {
+                                                <p>
+                                                    <div class="col-sm-4"><i class='bx bx-menu-alt-right'></i>  @item.Menu.MenuName</div>
+                                                    <div class="col-sm-4"><i class='bx bx-store'></i> : @item.Menu.Shop.MenuName</div>
+                                                    <div class="col-sm-2">@item.Menu.Price<i class='bx bx-bitcoin'></i></div>
+                                                    <div class="col-sm-2">x @item.Quantity</div>
+                                                </p>
+                                                }
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div box-inBox>
+                                        @if (Receiveduser is not null)
+                                        {
+                                            <div class="mb-2"><h7>Received by : @Receiveduser.UserName</h7></div>
+                                        }
+                                        <div><h7>Total Price : @(order.OrderDetail.Select(item => item.Menu.Price * item.Quantity).Sum())</h7></div>
+                                        @*<a class="btn btn-info" href="/Cart/AddItem?menuId=@menu.Id&&redirect=1">+</a>*@
+                                        <!--<div class="mb-5"></div>-->
+                                        <div class="mb-2"></div>
+                                        <form method="post" action="/Received/UpdateReceivedOrder">
+                                            <input type="hidden" name="orderId" value="@order.Id" />
+                                            <input type="hidden" name="newStatus" value="3" />
+                                            <button type="submit" class="btn btn-inBox">Complete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         }
-                        @(order.OrderDetail.Select(item => item.Menu.Price * item.Quantity).Sum())
-                        @*<a class="btn btn-info" href="/Cart/AddItem?menuId=@menu.Id&&redirect=1">+</a>*@
-                        @if (order.OrderStatusId == 2)
-                        {
-                            <form method="post" action="/Received/UpdateReceivedOrder">
-                                <input type="hidden" name="orderId" value="@order.Id" />
-                                <input type="hidden" name="newStatus" value="3" />
-                                <button type="submit" class="btn btn-primary">Complete</button>
-                            </form>
-                        
-                            <form method="post" action="/Received/UpdateReceivedOrder">
-                                <input type="hidden" name="orderId" value="@order.Id" />
-                                <input type="hidden" name="newStatus" value="4" />
-                                <button type="submit" class="btn btn-primary">Cancelled</button>
-                            </form>
-                        }
+
                     </div>
-                </div>
-            }
-
+                }
+                else
+                {
+                    <h5>No orders</h5>
+                }
+            </div>
         </div>
-    }
-    else
-    {
-        <h5>No orders</h5>
-    }
-</div>
+    </div>
+    <footer>
+        <a href="/home/index" class="btn my-2">Back To Home</a>
+    </footer>
 
-
-
-
+</body>

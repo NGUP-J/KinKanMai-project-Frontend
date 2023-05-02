@@ -1,0 +1,69 @@
+body {
+    width: 100%;
+    height: 100vh;
+    background: url("https://cdn.discordapp.com/attachments/1100690361078255738/1102105343397470248/IMG_5123.jpg")no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+mt-2.table table-striped {
+    width: 100%;
+    height: 10%;
+    background: #fff4;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+background {
+    
+    background-size: contain;
+    background-position: center center;
+}
+.mt-2.table table-striped{
+position: sticky;
+box-shadow: 0 .3rem .7rem #fff5;
+border-radius: .8rem;
+overflow: hidden;
+font-family: 'Anton', sans-serif;
+}
+body.mt-2 {
+   /* align-items: center;
+    justify-content: center;
+    border-radius: .8rem;*/
+}
+h5 {
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: .8px 1rem;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    color: #78201e;
+    font-family: 'Sans Serif Collection';
+    font-size: 5.5rem;
+    text-shadow: 0 5px 20px rgba(0,0,0,.2);
+    letter-spacing: .8px;
+}
+    h5:hover {
+        text-shadow: 0 5px 20px rgba(0,0,0,.5);
+
+    }
+h5:before,h5::after{
+    
+    top:0;
+    left:0;
+    content: attr(data-text);
+    transition: 0.5s;
+}
+    h5:hover:before {
+        top: -10px;
+        left: 10px;
+    }
+    h5:hover:after {
+        top: -20px;
+        left: 20px;
+    }
+

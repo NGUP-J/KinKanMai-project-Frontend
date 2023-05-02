@@ -1,0 +1,244 @@
+﻿
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+:root {
+    --bg-color: #171618;
+    --text-color: #171618;
+    --main-color: #b40000;
+    --second-color: #96221c;
+}
+
+body {
+    /*  color: var(--bg-color) !important;
+    font-family: 'League Spartan', sans-serif;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Caveat', cursive;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 60px;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    width: 100%;*/
+    width: 100%;
+    height: 100vh;
+    background: url(/https://media.discordapp.net/attachments/874582719273787402/1102506913763184640/Fotoram.io_1.jpg?width=720&height=480)no-repeat;
+    color: var(--text-color) !important;
+    font-family: 'League Spartan', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    background: url("https://cdn.discordapp.com/attachments/874582719273787402/1102506913763184640/Fotoram.io_1.jpg");
+}
+
+    .section::before {
+        z-index: -1;
+        content: '';
+        position: absolute;
+
+        /*อ้างอิงตำแหน่งของ parent*/
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(360deg, rgba(0, 0, 0, 0.39), transparent)
+    }
+/************************************************************/
+
+.background {
+    margin-top: 5%;
+}
+
+.btn {
+    background-color: #96221c;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+    .btn:hover {
+        color: white;
+    }
+/*.btn-inBox{
+        margin-bottom:20px;
+        position:fixed;
+        bottom:0;
+    }*/
+
+/*#####################################  RECEIVE AREA ###################################*/
+.receiveds-area {
+    display: inline-block !important;
+}
+
+.re-box-wp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.re-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    box-shadow: 28px 28px 40px #2f2f2f, -5px -5px 20px #000000;
+    display: flow-root;
+    width: 500px;
+    height: 510px;
+    padding: 10px 0px 10px 40px;
+    margin: 50px 10px 10px 10px;
+    transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+    font-size: 12px;
+}
+
+.h2-title {
+    font-size: 47px;
+    font-weight: 700;
+    line-height: 56px;
+    margin-top: 200px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    position: relative;
+    color: var(--text-color);
+    letter-spacing: 15px;
+}
+
+.user i, .status i, .date i {
+    font-size: 18px;
+    font-weight: 900;
+    color: red;
+}
+
+.user p, .status p, .date p {
+    font-size: 13px;
+    color: var(--text-color);
+}
+
+/*##################################### Scroll Bar in Order List ###################################*/
+
+
+.order-list-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.order-list-scroll::-webkit-scrollbar-track {
+    background-color: #333235;
+    border-radius: 10px;
+}
+
+.order-list-scroll::-webkit-scrollbar-thumb {
+    background: var(--second-color);
+    border-radius: 10px;
+}
+
+
+
+.re-box:hover {
+    transform: scale(1.03);
+}
+
+.dist-bottom-row ul {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+    .dist-bottom-row ul li:last-child {
+        text-align: right;
+    }
+
+.dist-bottom-row {
+    padding: 0 0px;
+    width: 350px;
+}
+
+    .dist-bottom-row ul li {
+        display: flex;
+        align-items: center;
+    }
+
+.dish-info {
+    padding: 0 8px 0;
+    width: 390px;
+    height: 210px;
+    position: center;
+}
+
+}
+
+/*body {
+    background: url("https://cdn.discordapp.com/attachments/874582719273787402/1102506913763184640/Fotoram.io_1.jpg")no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Caveat', cursive;
+    font-family: 'Lato', sans-serif;
+}
+
+.background {
+    margin-top: 5%;
+}
+
+.btn {
+    background-color: #96221c;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+    .btn:hover {
+        color: white;
+    }
+
+.btn-inBox {
+    margin-bottom: 25px;
+    position: fixed;
+    bottom: 0;
+    right: 25px;
+}
+
+.card-deco {
+    background-color: transparent;
+    backdrop-filter: blur(100px);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+}*/
+
+/*.card-deco:hover {
+            background-color: transparent;
+            backdrop-filter: blur(300px);
+            box-shadow: 0 0 10px rgba(0,0,0,.5);
+        }*/
+
+/*.cardText {
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.complete {
+    color: #03AC13;
+}
+
+.received {
+    color: red;
+}*/
+
