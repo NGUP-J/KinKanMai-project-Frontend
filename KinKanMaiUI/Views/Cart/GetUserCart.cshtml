@@ -11,7 +11,7 @@
             @if (Model != null && Model.CartDetails != null && Model.CartDetails.Count > 0)
             {
                 <div class="background">
-                    <h5 data-text="My Cart"></h5>
+                    <h1>MyCart</h1>
                     <table class="table table-striped">
                         <tr>
                             <th>Menu</th>
@@ -42,25 +42,38 @@
                             <td>@menu.Price X @quantity</td>
                             <td>@totalPrice</td>
                             <td>
-                                <a class="btn btn-info" href="/Cart/AddItem?menuId=@menu.Id&&redirect=1">+</a>
+                                @if ((Model.CartDetails.Select(item => item.Quantity).Sum() < 5))
+                                {
+                                    <a class="btn btn-info" href="/Cart/AddItem?menuId=@menu.Id&&redirect=1">+</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-info" href="">+</a>
+                                }
                                 <a class="btn btn-info" href="/Cart/RemoveItem?menuid=@menu.Id">-</a>
                             </td>
                         </tr>
                     }
-                </table>
+                    </table>
 
                     <div class="my-2">
                         <h6>Total(BAHT): </h6>
                         @(Model.CartDetails.Select(item => item.Menu.Price * item.Quantity).Sum())
                     </div>
+                    @* noti Max Cart*@
+                    @if ((Model.CartDetails.Select(item => item.Quantity).Sum() >= 5))
+                    {
+                        <h3>
+                            Max Cart!!!
+                        </h3>
+                    
+                    }
 
                     <form method="post" action="/Cart/Checkout">
                         <input type="text" id="txt" name="txt">
                         <button type="submit" class="btn btn-primary">Checkout with details</button>
                     </form>
-                    <div class="my-2">
-                        <a class="btn btn-primary" type="submit" href="/Cart/Checkout">Checkout</a>
-                    </div>
+                    
 
                 </div>
 

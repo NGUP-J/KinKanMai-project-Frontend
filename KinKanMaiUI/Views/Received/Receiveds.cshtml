@@ -14,9 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap" rel="stylesheet">
     <!-- CSS Import-->
     <link rel="stylesheet" href="/css/Receiveds.css" />
-    @*<link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />*@
     <!-- for icons  -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- MORE -->
@@ -25,9 +22,7 @@
 </head>
 
 <body >
-
-    <section id="receiveds" class="section " >
-        @*<a href="/home/index" class="btn btn-primary my-2">Back</a>*@
+    <section id="receiveds" class="section" >
 
         <!-- receiveds-box-area -->
         <div class="receiveds-area">
@@ -60,19 +55,19 @@
                                     <!-- name -->
                                     <div class="user">
                                         <i class='bx bx-user-circle'> Username : </i>
-                                        <p>   @user.UserName</p>
+                                        <p>@user.UserName</p>
                                     </div>
 
                                     <!-- status -->
                                     <div class="status">
                                         <i class='bx bx-timer'> Status : </i>
-                                        <p>   @order.OrderStatus.StatusName  </p>
+                                        <p>@order.OrderStatus.StatusName  </p>
                                     </div>
 
                                     <!-- date -->
                                     <div class="date">
                                         <i class='bx bx-calendar'> Date : </i>
-                                        <p>   @order.CreateDate</p>
+                                        <p>@order.CreateDate</p>
                                     </div>
                                 </div>
 
@@ -95,6 +90,7 @@
                                 </div>
 
                                 <div class="dist-bottom-row">
+                                    <div class="mb-2"><h7>Description: @order.Description</h7></div>
                                     @if (Receiveduser is not null)
                                     {
                                         <div class="mb-2"><h7>Received by : @Receiveduser.UserName</h7></div>
@@ -133,59 +129,6 @@
             </div>
         </div>
     </section>
-
-    @*<footer>
-        <a href="/home/index" class="btn my-2">back to home</a>
-    </footer>*@
-
-
-
-
-
-    <!--#############################   อันเก่า ##################################-->
-    @*
-    <div class="w-100 mt-4 d-flex flex-wrap gap-3 justify-content-start">
-    <div class="card mx-2 mb-4" style="width: 30rem;">
-    <img src="" class="card-img-top" alt="..." />
-    <div class="card-body">
-    <h5 class="card-title">
-    <p>@user.UserName</p> <!-- name -->
-    <p>@order.OrderStatus.StatusName</p> <!-- status -->
-    <p>@order.CreateDate</p>    <!-- date -->
-    </h5>
-
-    <p class="card-text">
-    <!-- order -->
-    @foreach (var item in order.OrderDetail)
-    {
-    <p>
-    Menu : @item.Menu.MenuName
-    shop : @item.Menu.Shop.MenuName
-    Price : @item.Menu.Price
-    Quantity : @item.Quantity
-    </p>
-    }
-
-    </p>
-    @if (Receiveduser is not null)
-    {
-    <h7>Received by : @Receiveduser.UserName</h7>
-    }
-    @(order.OrderDetail.Select(item => item.Menu.Price * item.Quantity).Sum())
-    @if (order.OrderStatusId == 1)
-    {
-    <form method="post" action="/Received/UpdateOrder">
-    <input type="hidden" name="orderId" value="@order.Id" />
-    <button type="submit" class="btn btn-primary">Take Out</button>
-    </form>
-    }
-    </div>
-    </div>
-    }
-    </div>*@
-
-
-
 </body>
 
 </html>

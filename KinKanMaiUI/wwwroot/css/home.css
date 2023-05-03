@@ -370,7 +370,7 @@ p {
 
 /* ******** SCROLLBAR AREA ************ */
 
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
@@ -386,7 +386,7 @@ p {
 
     ::-webkit-scrollbar-thumb:hover {
         background: var(--main-color);
-    }
+    }*/
 /*################# MENU ################*/
 .menu {
     display: flex;
