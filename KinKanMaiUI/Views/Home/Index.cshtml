@@ -52,7 +52,7 @@
                                         facere
                                     </p>
                                     <div class="btn-box">
-                                        <a href="#" class="btn">More</a>
+                                        <a href="#about" class="btn" onclick="window.scrollTo(0,document.body.scrollHeight-1000);"> More </a>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                 </div>
             </section>
 
-          
+
 
 
             <!-- Menu  Areaa -->
@@ -193,11 +193,11 @@
                                                             <b>THB. @menu.Price</b>
                                                         </li>
                                                         <li>
-                                                            
-                                                                <button class="dish-add-btn" onclick="add(@menu.Id)">
-                                                                    <i class="uil uil-plus"></i>
-                                                                </button>
-                                                            
+
+                                                            <button class="dish-add-btn" onclick="add(@menu.Id)">
+                                                                <i class="uil uil-plus"></i>
+                                                            </button>
+
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -240,13 +240,37 @@
                     <div class="row">
                         <div class="col-lg-8 m-auto">
                             <div class="about-video">
-                                <div class="about-video-img" style="background-image: url(/about.jpg);"></div>
-                                <div class="play-btn-wp">
-                                    <a href="/video.mp4" data-fancybox="video" class="play-btn">
-                                        <i class="uil uil-play"></i>
-                                    </a>
-                                    <span>Watch The Recipe</span>
-                                </div>
+                                  <div  class="play-btn-wp"> 
+                                            <video id="about-video" width="100%">
+                                              <source src="/KinKanMai.mp4" type="video/mp4">
+                                              Your browser does not support HTML video.
+                                            </video>
+                                            <div class="ply">
+                                                <button onclick="playPause()" id="btn-video" class="play-btn"> <i class='bx bx-play'></i> </button> 
+                                                <span id="text-video">Play Video</span>
+            
+                                            </div>
+
+                                   </div> 
+      
+                                    <script> 
+                                            var vdo = document.getElementById("about-video"); 
+                                            var text_vdo = document.getElementById("text-video"); 
+                                            var button_vdo = document.getElementById("btn-video"); 
+        
+                                            function playPause() { 
+                                                if (vdo.paused){
+                                                    vdo.play(); 
+                                                    text_vdo.innerText = "Pause Video";
+                                                    button_vdo.innerHTML = "<i class='bx bx-stop' ></i>";
+                                                } 
+                                                else {
+                                                    vdo.pause(); 
+                                                    text_vdo.innerText = "Play Video";
+                                                    button_vdo.innerHTML = "<i class='bx bx-play'></i>";
+                                                }
+                                            } 
+                                  </script>      
                             </div>
                         </div>
                     </div>
@@ -269,17 +293,16 @@
                             var cartCountEl = document.getElementById("cartCount");
                             console.log(cartCountEl)
 
-                            if (cartCountEl.innerHTML < 5)
-                            {
+                            if (cartCountEl.innerHTML < 5) {
                                 var response = await fetch(`/Cart/AddItem?menuId=${menuId}`);
-    
+
                                 if (response.status == 200) {
 
                                     var result = await response.json();
-                                    
+
                                     console.log(response)
                                     cartCountEl.innerHTML = result;
-                                //window.location.href = "#cartCount";
+                                    //window.location.href = "#cartCount";
                                 }
                             }
                             else {
@@ -313,4 +336,3 @@
     <script src="~/js/site.js"></script>
 </body>
 </html>
-

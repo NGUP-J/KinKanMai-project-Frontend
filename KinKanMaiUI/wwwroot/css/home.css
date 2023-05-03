@@ -58,11 +58,12 @@ body {
 /*################# HOME ################*/
 
 .btn-box {
+    min-width: 120px;
+    min-height: 58px;
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 34.5rem;
-    height: 5rem;
+    padding: 6px 30px;
     z-index: 2;
     margin-top: 25px
 }
@@ -151,7 +152,6 @@ body {
 .banner-img-wp {
     width: 100%;
     height: 100%;
-    padding-left: 30px;
 }
 
 .banner-img {
@@ -161,6 +161,7 @@ body {
     background-position: center;
     animation: biani 4.5s linear infinite alternate;
     box-shadow: 0 0px 20px rgba(36, 39, 37, 0.3);
+
 }
 
 @keyframes biani {
@@ -292,27 +293,23 @@ p {
     text-transform: uppercase;
     display: inline-block;
     background: #f3f3f5;
-    box-shadow: 9px 9px 12px #2f2f2f, -9px -9px 12px #2f2f2f;
+    box-shadow: 9px 9px 12px #e4e4e4, -9px -9px 12px #ffffff;
     padding: 3px 20px;
     border-radius: 60px;
-    color: #D21502;
+    color: #ff8243;
     font-size: 14px;
-    font-weight: 600;
 }
 
 .h2-title {
-    font-size: 47px;
+    font-size: 46px;
     line-height: 56px;
     margin-bottom: 15px;
     text-transform: capitalize;
     position: relative;
-    color: #926f34;
 }
 
     .h2-title span, .h3-title span, .h4-title span, .h5-title span, .sub-title span {
         display: block;
-        color: #a12822;
-        font-family: 'Playfair Display', serif;
     }
 
 .about-video-img {
@@ -331,10 +328,10 @@ p {
 }
 
 .play-btn {
-    width: 90px;
-    height: 90px;
-    background: #f3f3f5;
-    box-shadow: 9px 9px 12px #202020, -9px -9px 12px #202020;
+    width: 70px;
+    height: 70px;
+    background: var(--main-color);
+    box-shadow: 9px 9px 12px rgba(36, 39, 37, 0.3), -9px -9px 12px rgb(13 13 37 /8%);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -345,32 +342,49 @@ p {
     z-index: 2;
     padding-left: 4px;
     padding-top: 4px;
-    font-size: 40px;
+    font-size: 60px;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+.ply {
+    display: flex;
+    vertical-align: middle;
 }
 
-    .play-btn:hover {
-        box-shadow: inset 9px 9px 12px #ababab, inset -9px -9px 12px #ffffff;
-        transform: scale(1.13);
+    .ply span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: bold;
+        color: var(--text-color);
     }
 
+.play-btn:hover {
+    box-shadow: inset 9px 9px 12px #96221c, inset -9px -9px 12px #96221c;
+    transform: scale(1.1);
+}
+  
+
 .play-btn-wp {
-    text-align: center;
     margin-top: 40px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    text-align: center;
     align-items: center;
 }
 
     .play-btn-wp span {
         margin-left: 20px;
         font-size: 20px;
-        color: #bfbfbf;
         font-weight: bold;
+        color: #bfbfbf;
     }
 
-/* ******** SCROLLBAR AREA ************ */
+/********* SCROLLBAR AREA ************ */
 
-/*::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
@@ -386,7 +400,9 @@ p {
 
     ::-webkit-scrollbar-thumb:hover {
         background: var(--main-color);
-    }*/
+    }
+
+
 /*################# MENU ################*/
 .menu {
     display: flex;
@@ -607,62 +623,9 @@ p {
             color: var(--bg-color);
         }
 
-
-
-/*################# BREACKPOINT ################*/
-
-/*@media (max-width: 1200px) {
-    html {
-        font-size: 55%;
-    }
+.btn {
+    background-color: #96221c;
+    border: none;
+    border-radius: 10px;
+    color: white;
 }
-
-@media (max-width: 991px) {
-    .header {
-        padding: 2rem 4%;
-    }
-
-    section {
-        padding: 10rem 4% 2rem;
-    }
-
-    .home-area {
-        padding: 0 4%;
-    }
-
-    .footer {
-        padding: 2rem 4%;
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        background: var(--bg-color);
-    }
-}
-
-@media (max-width: 462px) {
-    .home-content h1 {
-        font-size: 5.2rem;
-    }
-}
-
-@media (max-width: 371px) {
-
-    .home {
-        justify-content: center;
-    }
-
-    .home-content {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-    }
-
-        .home-content h1 {
-            font-size: 5rem;
-        }
-}*/
-
-/*################# ANIMATION ################*/

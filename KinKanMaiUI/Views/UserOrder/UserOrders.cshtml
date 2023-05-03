@@ -27,9 +27,9 @@
                 </div>*@
                 @if (Model != null && Model.Count() > 0)
                 {
-                    <div class="background"></div>
+                    <div class="background">
                     <table class="table table-striped">
-                            <tr>
+                            <tr id="headr">
                                 <th>OrderDate</th>
                                 <th>OrderStatus</th>
                             </tr>
@@ -37,7 +37,7 @@
                         @foreach (var order in Model.OrderByDescending(x => x.CreateDate))
                         {
                             <tr>
-                                <td>@order.CreateDate.ToString("dd-MM-yyyy")</td>
+                                <td>@order.CreateDate</td>
                                 <td>@order.OrderStatus.StatusName</td>
                             </tr>
                             @if (order.OrderDetail != null && order.OrderDetail.Count > 0)
@@ -69,14 +69,7 @@
                                                     <tr>
                                                         <td>@item.Menu.MenuName</td>
                                                         <td>
-                                                            @if (string.IsNullOrEmpty(item.Menu.Image))
-                                                            {
-                                                                <img src="/images/NoImage.png" style="width:80px;height:100px" />
-                                                            }
-                                                            else
-                                                            {
-                                                                <img src="/images/@item.Menu.Image" style="width:80px;height:100px" />
-                                                            }
+                                                                <img src="@item.Menu.Image" style="width:80px;height:100px" />
                                                         </td>
                                                         <td>@item.Menu.Shop.MenuName</td>
                                                         <td>@item.Menu.Price X @item.Quantity</td>
@@ -87,11 +80,12 @@
                                         </table>
                                     </td>
                                 </tr>
+
                             }
-                            /*<td>Description : @order.Description</td>*/
+                            <td>Description : @order.Description</td>
                         }
                     </table>
-
+                    </div>
                 }
                 else
                 {

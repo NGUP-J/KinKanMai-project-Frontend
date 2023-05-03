@@ -29,14 +29,7 @@
                         <tr>
                             <td>@menu.MenuName</td>
                             <td>
-                                @*@if (string.IsNullOrEmpty(item.Menu.Image))
-                        {
-                        <img src="/images/NoImage.png" style="width:80px;height:100px" />
-                        }
-                        else
-                        {
-                        <img src="/images/@item.Menu.Image" style="width:80px;height:100px" />
-                        }*@
+                                <img src="@menu.Image" style="width:80px;height:100px" />
                             </td>
                             <td>@menu.Shop.MenuName</td>
                             <td>@menu.Price X @quantity</td>
@@ -68,19 +61,20 @@
                         </h3>
                     
                     }
-
-                    <form method="post" action="/Cart/Checkout">
-                        <input type="text" id="txt" name="txt">
-                        <button type="submit" class="btn btn-primary">Checkout</button>
-                    </form>
-                    
+                    <div id="txtbox">
+                        <form method="post" action="/Cart/Checkout">
+                            <input type="text" id="txt" placeholder="Detail" name="txt">
+                            <button type="submit" class="btn btn-primary">Checkout</button>
+                        </form>
+                    </div>
 
                 </div>
 
             }
             else
             {
-                <h5>Cart is empty</h5>
+                <div class="alert alert-dark bg-black border-0 text-white text-center"><h2>Cart is empty</h2></div>
             }
+            <a href="/home/index" class="btn btn-primary my-2">Back</a>
         </div>
     </body>

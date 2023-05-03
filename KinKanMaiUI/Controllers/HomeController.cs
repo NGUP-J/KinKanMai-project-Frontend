@@ -42,10 +42,13 @@ namespace KinKanMaiUI.Controllers
             }
             else
             {
+                
                 return Redirect("/Identity/Account/Login");
             }
             
         }
+
+     
 
         public IActionResult Privacy()
         {

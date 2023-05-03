@@ -28,27 +28,10 @@
     background-position: center;
     border-radius: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
-
-.logo {
-    text-align: center;
-    margin: 20px;
-}
-
-    .logo h2 {
-        min-height: 100vh;
-        position: relative;
-        font-size: 24px;
-        margin: 0;
-    }
-
-    .logo i {
-        position: relative;
-        font-size: 48px;
-    }
 
 .block .content {
-    max-width: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -67,6 +50,7 @@
 }
 
 .block .logo {
+    left: 0;
     text-align: center;
     position: absolute;
     top: 56%;
@@ -74,7 +58,7 @@
 }
 
 .block .content h2 {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 
@@ -92,7 +76,7 @@
 }
 
 .form-box .in-form-box {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .form-box h2 {
@@ -158,7 +142,7 @@
 .form-box .remember {
     font-size: 14.5px;
     font-weight: 500;
-    margin: -15px 10 15px;
+    margin: -15px 10px 15px;
     display: flex;
     justify-content: space-between;
 }
