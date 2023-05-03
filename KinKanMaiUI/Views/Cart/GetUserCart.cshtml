@@ -10,8 +10,8 @@
        
             @if (Model != null && Model.CartDetails != null && Model.CartDetails.Count > 0)
             {
+                <h1>MyCart</h1>
                 <div class="background">
-                    <h1>MyCart</h1>
                     <table class="table table-striped">
                         <tr>
                             <th>Menu</th>
@@ -71,7 +71,7 @@
 
                     <form method="post" action="/Cart/Checkout">
                         <input type="text" id="txt" name="txt">
-                        <button type="submit" class="btn btn-primary">Checkout with details</button>
+                        <button type="submit" class="btn btn-primary">Checkout</button>
                     </form>
                     
 
